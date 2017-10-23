@@ -8,9 +8,9 @@
 -->
 <launch>
   <!-- add kinect2 frame -->
-  <!--node name="kinect2_viewer" pkg="kinect2_viewer" type="kinect2_viewer"/-->
-  <!--node name="tf_broadcaster" pkg="robot_setup_tf" type="tf_broadcaster"/>
-  <node name="tf_listener"    pkg="robot_setup_tf" type="tf_listener"/-->
+  <node name="kinect2_viewer_click" pkg="kinect2_viewer_click" type="kinect2_viewer_click"/>
+  <node name="test_mf" pkg="robot_setup_tf" type="test_mf"/>
+  <!--node name="tf_listener"    pkg="robot_setup_tf" type="tf_listener"/-->
 
 
 
@@ -44,12 +44,15 @@
      <arg name="limited" value="true"/>
   </include>
 
-  <!-- ur5_moveit_config-->
+  <!-- ur5_moveit_config>
   <include file="$(find ur5_moveit_config)/launch/moveit_rviz.launch">
-     <arg name="config" value="true"/>
+     <arg name="config" value="false"/>
+  </include-->
+  
+  <include file="$(find easy_handeye)/launch/publish.launch">
+      <arg name="eye_on_hand" value="false"/>
   </include>
 
-
-
+  
 
 </launch>
